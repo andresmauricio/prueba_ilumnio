@@ -1,0 +1,26 @@
+<div class="container my-5">
+
+    <form [formGroup]="form" (ngSubmit)="sendRegister()" class="card p-5">
+        <div class="form-group">
+            <label>Nombres</label>
+            <input formControlName="name" type="text" class="form-control"
+                [ngClass]="{'is-invalid': isInvalid('name'), 'is-valid': isValid('name')}">
+
+        </div>
+        <div class="form-group">
+            <label>Seleccione un programa</label>
+            <select formControlName="program" class="form-control"
+                [ngClass]="{'is-invalid': isInvalid('program'), 'is-valid': isValid('program')}">
+                <option *ngFor="let item of listProgram" [value]="item.id">
+                    {{item.name}}
+                </option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Comentario</label>
+            <textarea formControlName="comment" cols="20" rows="5" class="form-control
+            " [ngClass]="{'is-invalid': isInvalid('comment'), 'is-valid': isValid('comment')}"></textarea>
+        </div>
+        <button class="btn btn-success" type="submit">Enviar</button>
+    </form>
+</div>

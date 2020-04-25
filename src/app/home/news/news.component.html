@@ -1,0 +1,16 @@
+<div *ngIf="loadNews"  class="d-flex justify-content-center loader-content">
+    <div class="spinner-border" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+</div>
+
+<div class="container my-5">
+    <div *ngIf="!loadNews" class="row">
+        <div class="card mb-4 w-80" *ngFor="let item of listNews ">
+            <div class="card-body">
+                <h2>{{item.title}}</h2>
+                <p>{{item.body}}</p>
+            </div>
+        </div>
+    </div>
+</div>
